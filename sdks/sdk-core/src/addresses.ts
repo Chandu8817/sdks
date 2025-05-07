@@ -20,7 +20,7 @@ type ChainAddresses = {
   v4QuoterAddress?: string
 }
 
-const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI, ChainId.SEPOLIA]
+const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI, ChainId.SEPOLIA, ChainId.POLYGON_AMOY]
 
 function constructSameAddressMap(address: string, additionalNetworks: ChainId[] = []): AddressMap {
   return DEFAULT_NETWORKS.concat(additionalNetworks).reduce<AddressMap>((memo, chainId) => {
@@ -34,6 +34,7 @@ export const UNI_ADDRESSES: AddressMap = constructSameAddressMap('0x1f9840a85d5a
   ChainId.ARBITRUM_ONE,
   ChainId.POLYGON,
   ChainId.POLYGON_MUMBAI,
+  ChainId.POLYGON_AMOY,
   ChainId.SEPOLIA,
 ])
 
@@ -287,6 +288,22 @@ const BASE_SEPOLIA_ADDRESSES: ChainAddresses = {
   v4StateView: '0x571291b572ed32ce6751a2cb2486ebee8defb9b4',
   v4QuoterAddress: '0x4a6513c898fe1b2d0e78d3b0e0a4a151589b1cba',
 }
+// polygon amoy v3 addresses
+const POLYGON_AMOY_ADDRESSES: ChainAddresses = {
+  v3CoreFactoryAddress: '0x78bb234b5e052D7ad09Ad55F36151a169E4EA92B',
+  multicallAddress: '0xd10Fef556272e36708C95c4DA6666Fc6Ba4Db549',
+  quoterAddress: '0xFc46cf87cFE4C4F4E9Fa6b788482fc05865F6D0b',
+  v3MigratorAddress: '0xCbf8b7f80800bd4888Fbc7bf1713B80FE4E23E10',
+  nonfungiblePositionManagerAddress: '0x3958484eb73E0b5421B11a5aD853F4f3D9f6B0cB',
+  tickLensAddress: '0x99CFA1f751ADbDCBab3bb80c5A9Be13D3D254577',
+  swapRouter02Address: '0x36c092797e4585146e261CFf7Ce6F76A3F875f11',
+
+  // v4
+  v4PoolManagerAddress: '0x05E73354cFDd6745C338b50BcFDfA3Aa6fA03408',
+  v4PositionManagerAddress: '0x4b2c77d209d3405f41a037ec6c77f7f5b8e2ca80',
+  v4StateView: '0x571291b572ed32ce6751a2cb2486ebee8defb9b4',
+  v4QuoterAddress: '0x4a6513c898fe1b2d0e78d3b0e0a4a151589b1cba',
+}
 
 const ZORA_ADDRESSES: ChainAddresses = {
   v3CoreFactoryAddress: '0x7145F8aeef1f6510E92164038E1B6F8cB2c42Cbb',
@@ -423,6 +440,7 @@ export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses>
   [ChainId.ARBITRUM_ONE]: ARBITRUM_ONE_ADDRESSES,
   [ChainId.POLYGON]: POLYGON_ADDRESSES,
   [ChainId.POLYGON_MUMBAI]: POLYGON_ADDRESSES,
+  [ChainId.POLYGON_AMOY]: POLYGON_AMOY_ADDRESSES,
   [ChainId.GOERLI]: GOERLI_ADDRESSES,
   [ChainId.CELO]: CELO_ADDRESSES,
   [ChainId.CELO_ALFAJORES]: CELO_ADDRESSES,

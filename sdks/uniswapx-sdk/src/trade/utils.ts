@@ -2,7 +2,7 @@ import { ChainId, Currency } from "@uniswap/sdk-core";
 import { constants } from "ethers";
 
 export enum NativeAssets {
-  MATIC = "MATIC",
+  POL = "POL",
   BNB = "BNB",
   AVAX = "AVAX",
   ETH = "ETH",
@@ -11,7 +11,7 @@ export enum NativeAssets {
 function nativeCurrencyAddressString(chainId: number): string {
   switch (chainId) {
     case ChainId.POLYGON:
-      return NativeAssets.MATIC;
+      return NativeAssets.POL;
     case ChainId.BNB:
       return NativeAssets.BNB;
     case ChainId.AVALANCHE:
