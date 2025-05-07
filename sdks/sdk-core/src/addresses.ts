@@ -18,7 +18,7 @@ type ChainAddresses = {
   v4PositionManagerAddress?: string
 }
 
-const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI, ChainId.SEPOLIA]
+const DEFAULT_NETWORKS = [ChainId.MAINNET, ChainId.GOERLI, ChainId.SEPOLIA, ChainId.POLYGON_AMOY]
 
 function constructSameAddressMap(address: string, additionalNetworks: ChainId[] = []): AddressMap {
   return DEFAULT_NETWORKS.concat(additionalNetworks).reduce<AddressMap>((memo, chainId) => {
@@ -32,6 +32,7 @@ export const UNI_ADDRESSES: AddressMap = constructSameAddressMap('0x1f9840a85d5a
   ChainId.ARBITRUM_ONE,
   ChainId.POLYGON,
   ChainId.POLYGON_MUMBAI,
+  ChainId.POLYGON_AMOY,
   ChainId.SEPOLIA,
 ])
 
@@ -198,6 +199,17 @@ const BASE_ADDRESSES: ChainAddresses = {
   mixedRouteQuoterV1Address: '0xe544efae946f0008ae9a8d64493efa7886b73776',
 }
 
+// polygon amoy v3 addresses
+const POLYGON_AMOY_ADDRESSES: ChainAddresses = {
+  v3CoreFactoryAddress: '0x78bb234b5e052D7ad09Ad55F36151a169E4EA92B',
+  multicallAddress: '0xd10Fef556272e36708C95c4DA6666Fc6Ba4Db549',
+  quoterAddress: '0xFc46cf87cFE4C4F4E9Fa6b788482fc05865F6D0b',
+  v3MigratorAddress: '0xCbf8b7f80800bd4888Fbc7bf1713B80FE4E23E10',
+  nonfungiblePositionManagerAddress: '0x3958484eb73E0b5421B11a5aD853F4f3D9f6B0cB',
+  tickLensAddress: '0x99CFA1f751ADbDCBab3bb80c5A9Be13D3D254577',
+  swapRouter02Address: '0x36c092797e4585146e261CFf7Ce6F76A3F875f11',
+}
+
 // Base Goerli v3 addresses
 const BASE_GOERLI_ADDRESSES: ChainAddresses = {
   v3CoreFactoryAddress: '0x9323c1d6D800ed51Bd7C6B216cfBec678B7d0BC2',
@@ -283,6 +295,7 @@ export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses>
   [ChainId.OPTIMISM]: OPTIMISM_ADDRESSES,
   [ChainId.ARBITRUM_ONE]: ARBITRUM_ONE_ADDRESSES,
   [ChainId.POLYGON]: POLYGON_ADDRESSES,
+  [ChainId.POLYGON_AMOY]: POLYGON_AMOY_ADDRESSES,
   [ChainId.POLYGON_MUMBAI]: POLYGON_ADDRESSES,
   [ChainId.GOERLI]: GOERLI_ADDRESSES,
   [ChainId.CELO]: CELO_ADDRESSES,
